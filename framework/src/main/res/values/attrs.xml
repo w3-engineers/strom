@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="BaseToolBar">
+        <attr name="showHomeButton" format="boolean"/>
+        <attr name="customTitle" format="string"/>
+    </declare-styleable>
+
+    <declare-styleable name="BaseCompositeButton">
+        <!-- Default Android attrs -->
+        <attr name="android:enabled" />
+        <attr name="android:text" />
+        <attr name="android:textSize" />
+        <attr name="android:textAllCaps" />
+        <attr name="android:textStyle" />
+
+        <attr name="btn_defaultColor" format="color" />
+        <attr name="btn_text" format="string" />
+
+        <attr name="btn_textColor" format="color" />
+        <attr name="btn_iconColor" format="color" />
+
+        <attr name="btn_textFont" format="string" />
+        <attr name="btn_iconFont" format="string" />
+
+        <attr name="btn_textSize" format="dimension" />
+        <attr name="btn_iconResource" format="integer" />
+        <attr name="btn_fontIconResource" format="string" />
+        <attr name="btn_fontIconSize" format="dimension" />
+        <attr name="btn_iconPosition" format="enum">
+            <enum name="left" value="1" />
+            <enum name="right" value="2" />
+            <enum name="top" value="3" />
+            <enum name="bottom" value="4" />
+        </attr>
+
+        <attr name="btn_textPosition" format="enum">
+            <enum name="left" value="1" />
+            <enum name="right" value="2" />
+            <enum name="top" value="3" />
+            <enum name="bottom" value="4" />
+        </attr>
+
+        <attr name="btn_textGravity" format="enum">
+            <enum name="top" value="0x30" />
+            <enum name="bottom" value="0x50" />
+            <enum name="left" value="0x03" />
+            <enum name="right" value="0x05" />
+            <enum name="center_vertical" value="0x10" />
+            <enum name="fill_vertical" value="0x70" />
+            <enum name="center_horizontal" value="0x01" />
+            <enum name="fill_horizontal" value="0x07" />
+            <enum name="center" value="0x11" />
+            <enum name="fill" value="0x77" />
+            <enum name="clip_vertical" value="0x80" />
+            <enum name="clip_horizontal" value="0x08" />
+            <enum name="start" value="0x00800003" />
+            <enum name="end" value="0x00800005" />
+        </attr>
+
+        <attr name="btn_iconPaddingLeft" format="dimension" />
+        <attr name="btn_iconPaddingRight" format="dimension" />
+        <attr name="btn_iconPaddingTop" format="dimension" />
+        <attr name="btn_iconPaddingBottom" format="dimension" />
+
+        <attr name="btn_radiusTopLeft" format="dimension"/>
+        <attr name="btn_radiusTopRight" format="dimension"/>
+        <attr name="btn_radiusBottomLeft" format="dimension"/>
+        <attr name="btn_radiusBottomRight" format="dimension"/>
+
+        <attr name="btn_borderColor" format="color" />
+        <attr name="btn_borderWidth" format="dimension" />
+        <attr name="btn_focusColor" format="color" />
+        <attr name="btn_disabledColor" format="color" />
+        <attr name="btn_disabledTextColor" format="color" />
+        <attr name="btn_disabledBorderColor" format="color" />
+        <attr name="btn_radius" format="dimension" />
+        <attr name="btn_textAllCaps" format="boolean" />
+
+        <attr name="btn_ghost" format="boolean" />
+        <attr name="btn_useSystemFont" format="boolean" />
+        <attr name="btn_backgroundDrawable" format="reference"/>
+
+    </declare-styleable>
+
+    <declare-styleable name="BaseEditText">
+        <!-- The base color of the line and the texts. Default is black. -->
+        <attr name="bet_baseColor" format="color" />
+        <!-- The highlight color of the line, and the floating label if the highlightFloatingLabel is true. -->
+        <attr name="bet_primaryColor" format="color" />
+        <!-- How the floating label should be shown. Default is none -->
+        <attr name="bet_floatingLabel">
+            <enum name="none" value="0" />
+            <enum name="normal" value="1" />
+            <enum name="highlight" value="2" />
+        </attr>
+        <!-- The color for when something is wrong.(e.g. exceeding max characters) -->
+        <attr name="bet_errorColor" format="color" />
+        <!-- Min characters count limit. 0 means no limit. -->
+        <attr name="bet_minCharacters" format="integer" />
+        <!-- max Characters count limit. 0 means no limit. -->
+        <attr name="bet_maxCharacters" format="integer" />
+        <!-- Whether to show the bottom ellipsis in singleLine mode -->
+        <attr name="bet_singleLineEllipsis" format="boolean" />
+        <!-- Reserved bottom text lines count, no matter if there is some helper/error text. -->
+        <attr name="bet_minBottomTextLines" format="integer" />
+        <!-- Helper text at the bottom -->
+        <attr name="bet_helperText" format="string" />
+        <!-- Helper text color -->
+        <attr name="bet_helperTextColor" format="color" />
+        <!-- Font of the paint used to draw accent texts -->
+        <attr name="bet_accentTypeface" format="string" />
+        <!-- Font used on view -->
+        <attr name="bet_typeface" format="string" />
+        <!-- Custom float label text -->
+        <attr name="bet_floatingLabelText" format="string" />
+        <!-- spacing between the main text and the floating label -->
+        <attr name="bet_floatingLabelPadding" format="dimension" />
+        <!-- Hide underline -->
+        <attr name="bet_hideUnderline" format="boolean" />
+        <!-- Underline's color -->
+        <attr name="bet_underlineColor" format="color" />
+        <!-- Auto validate -->
+        <attr name="bet_autoValidate" format="boolean" />
+        <!-- Left icon -->
+        <attr name="bet_iconLeft" format="reference" />
+        <!-- Right icon -->
+        <attr name="bet_iconRight" format="reference" />
+        <!-- Padding between icon(s) and the main area. 8dp by default. -->
+        <attr name="bet_iconPadding" format="dimension" />
+        <!-- Clear button -->
+        <attr name="bet_clearButton" format="boolean" />
+        <!-- The floating label's text size. 12sp by default. -->
+        <attr name="bet_floatingLabelTextSize" format="dimension" />
+        <!-- The floating label's text color. -1 by default. -->
+        <attr name="bet_floatingLabelTextColor" format="color" />
+        <!-- The bottom texts' size. 12sp by default. -->
+        <attr name="bet_bottomTextSize" format="dimension" />
+        <!-- Always show the floating label, instead of animating it in/out. False by default. -->
+        <attr name="bet_floatingLabelAlwaysShown" format="boolean" />
+        <!-- Always show the helper text, no matter if the edit text is focused. False by default. -->
+        <attr name="bet_helperTextAlwaysShown" format="boolean" />
+        <!-- Whether use animation to show/hide the floating label. True by default. -->
+        <attr name="bet_floatingLabelAnimating" format="boolean"/>
+        <!-- Text color -->
+        <attr name="bet_textColor" format="color" />
+        <!-- Hint Text Color -->
+        <attr name="bet_textColorHint" format="color" />
+        <!-- Auto validate on focus lost. False by default. -->
+        <attr name="bet_validateOnFocusLost" format="boolean"/>
+        <!-- Whether check the characters count at the beginning it's shown. True by default. -->
+        <attr name="bet_checkCharactersCountAtBeginning" format="boolean"/>
+    </declare-styleable>
+
+    <declare-styleable name="BaseRecyclerView">
+        <attr name="brv_defaultAnimation" format="boolean"/>
+        <attr name="brv_viewMode" format="enum">
+            <enum name="vertical" value="1"/>
+            <enum name="horizontal" value="2"/>
+        </attr>
+        <attr name="brv_emptyLayoutId" format="integer"/>
+        <attr name="brv_progressViewId" format="integer"/>
+    </declare-styleable>
+
+    <declare-styleable name="BaseButton">
+        <attr name="bb_drawable" format="reference"/>
+    </declare-styleable>
+</resources>

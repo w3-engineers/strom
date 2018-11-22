@@ -1,0 +1,24 @@
+<resources>
+    <!--app level strings-->
+    <string name="app_name">Sample</string>
+
+    <!--User entry-->
+    <string name="user_inserted_confirmation">User %s inserted</string>
+    <string name="user_inserted_empty_message">Please enter your info</string>
+    <string name="remote_user_call_with_null_api">Please enter your info</string>
+
+    <string name="insert">Insert</string>
+    <string name="delete">Delete</string>
+    <string name="edit">Edit</string>
+    <string name="cancel">Cancel</string>
+    <string name="update">Update</string>
+    <string name="name">Name</string>
+    <string name="address">Address</string>
+    <string name="add_user">Add user</string>
+    <string name="framework">FRAMEWORK</string>
+    <string name="show_data">Show data from DB</string>
+    <string name="save_data">Save Data in DB</string>
+    <string name="add_item">Add Item</string>
+    <string name="delete_confirmation">Do you want to delete?</string>
+
+</resources>

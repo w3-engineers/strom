@@ -1,0 +1,90 @@
+
+//right-mesh config start
+buildscript {
+
+    //to load rm username and password from local.properties file
+    apply from: 'propertyreader.gradle'
+
+
+    repositories {
+        maven {
+            url "https://research.rightmesh.io/artifactory/libs-local"
+            credentials {
+                username artifactory_app_username
+                password artifactory_app_password
+            }
+        }
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath 'io.left.rightmesh:rightmesh-plugin:1.6'
+    }
+}
+
+apply plugin: 'io.left.rightmesh.rightmesh-plugin'
+
+configurations.all {
+    resolutionStrategy.cacheChangingModulesFor 0, 'seconds'
+}
+
+repositories {
+    mavenCentral()
+    jcenter()
+    maven {
+        url "https://research.rightmesh.io/artifactory/libs-local"
+        credentials {
+            username artifactory_app_username
+            password artifactory_app_password
+        }
+    }
+
+    maven {
+        url "https://jitpack.io"
+    }
+}
+//right-mesh config end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+//to load rm username and password from local.properties file
+apply from: 'framework/propertyreader.gradle'
+
+
+allprojects {
+    repositories {
+        jcenter()
+        google()
+        maven {
+            url "https://maven.google.com/"
+            name "Google"
+        }
+        maven { url "https://jitpack.io" }
+        mavenCentral()
+        maven {
+            url "https://research.rightmesh.io/artifactory/libs-local"
+            credentials {
+                username artifactory_app_username
+                password artifactory_app_password
+            }
+        }
+    }
+
+    apply plugin: 'io.left.rightmesh.rightmesh-plugin'
+}*/

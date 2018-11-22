@@ -1,0 +1,11 @@
+.gradle
+/local.properties
+/gradle.properties
+/.idea/workspace.xml
+.DS_Store
+/build
+.idea/
+*iml
+*.iml
+*/build
+**/rightmesh.json

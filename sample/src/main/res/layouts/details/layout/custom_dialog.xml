@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <variable
+            name="userEntity"
+            type="io.left.core.sample.data.database.user.UserEntity"/>
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="15dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:orientation="vertical">
+
+
+            <core.left.io.framework.application.ui.widget.BaseEditText
+                android:id="@+id/name_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:hint="@string/name"
+                app:bet_floatingLabel="normal"
+                app:bet_maxCharacters="20"
+                app:bet_minCharacters="3"
+                app:bet_floatingLabelTextSize="20sp"
+                app:bet_hideUnderline="true"
+                app:bet_helperTextColor="@color/colorAccent"
+                android:text="@={userEntity.userName}"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp">
+
+             <core.left.io.framework.application.ui.widget.BaseButton
+                 android:id="@+id/btn_update"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:layout_alignParentLeft="true"
+                 android:text="@string/update"
+                 app:bb_drawable="@drawable/button_gradient_white"/>
+
+             <core.left.io.framework.application.ui.widget.BaseButton
+                 android:id="@+id/btn_cancel"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:layout_alignParentRight="true"
+                 android:text="@string/cancel"
+                 app:bb_drawable="@drawable/button_gradient_white"/>
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</layout>
+

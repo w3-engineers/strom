@@ -1,0 +1,107 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion build_versions.target_sdk
+
+    defaultConfig {
+        applicationId "io.left.core.imagepickersample"
+        minSdkVersion build_versions.min_sdk
+        targetSdkVersion build_versions.target_sdk
+        versionCode vCode()
+        versionName vName
+
+        def apkName = appName + "-" + getDateTime() + "-" + versionName
+        setProperty("archivesBaseName", apkName)
+
+
+        //When we need only one language this filter reduces APK size
+        resConfigs "en"
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        multiDexEnabled true
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    dataBinding {
+        enabled = true
+    }
+
+    sourceSets {
+        main {
+            //An experimental approach to group all layouts. If developers does not like we can simply
+            //ignore grouping in this way
+            res.srcDirs = [
+                    'src/main/res/layouts/image_picker',
+                    'src/main/res/layouts',
+                    'src/main/res'
+            ]
+        }
+    }
+
+}
+
+dependencies {
+    //Support
+    implementation deps.support.app_compat
+    implementation deps.constraint_layout
+    implementation deps.support.recyclerview
+
+    //framework
+    api deps.framework
+}
+//Configuration end
+
+//right-mesh config start
+buildscript {
+
+    //to load rm username and password from local.properties file
+    repositories {
+        maven {
+            url "https://research.rightmesh.io/artifactory/libs-local"
+            credentials {
+                username artifactory_app_username
+                password artifactory_app_password
+            }
+        }
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath 'io.left.rightmesh:rightmesh-plugin:1.6'
+    }
+}
+
+apply plugin: 'io.left.rightmesh.rightmesh-plugin'
+
+configurations.all {
+    resolutionStrategy.cacheChangingModulesFor 0, 'seconds'
+}
+
+repositories {
+    mavenCentral()
+    jcenter()
+    maven {
+        url "https://research.rightmesh.io/artifactory/libs-local"
+        credentials {
+            username artifactory_app_username
+            password artifactory_app_password
+        }
+    }
+
+    maven {
+        url "https://jitpack.io"
+    }
+}
+//right-mesh config end

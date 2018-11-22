@@ -1,0 +1,18 @@
+import java.text.DateFormat
+import java.text.SimpleDateFormat
+
+ext {
+
+    vCode = {
+        def vc = vName.replaceAll("\\D+", "")
+        vc.toInteger()
+    }
+
+}
+
+
+
+ext.getDateTime = {
+    DateFormat df = new SimpleDateFormat("dd-MM-yyyy HH-mm")//HH means 24hr format
+    df.format(new Date())
+}

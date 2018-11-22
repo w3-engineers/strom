@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">ImagePickerSample</string>
+    <string name="pick_all_images">Pick All Images</string>
+</resources>

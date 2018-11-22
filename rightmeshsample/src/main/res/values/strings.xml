@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">RightMesh Sample</string>
+    <string name="my_username">My Username:</string>
+    <string name="users_no_item">No Item</string>
+    <string name="users_unable_to_process">Something went wrong</string>
+    <string name="users_peers">Peers</string>
+    <string name="user_activity_permission_required">Permission is required</string>
+</resources>

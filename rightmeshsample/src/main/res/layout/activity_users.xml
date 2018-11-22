@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="userEntity"
+            type="io.left.core.rmsample.data.remote.UserEntity"/>
+
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.users.UsersActivity">
+
+        <TextView
+            android:id="@+id/empty_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginBottom="10dp"
+            android:padding="10dp"
+            android:text="@string/users_no_item"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/my_user_name_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingEnd="@dimen/my_user_name"
+            android:paddingRight="@dimen/my_user_name"
+            android:text="@string/my_username"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/my_user_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{userEntity.userName}"
+            app:layout_constraintLeft_toRightOf="@id/my_user_name_label"
+            tools:text="Azim" />
+
+        <TextView
+            android:id="@+id/peers"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/my_user_name"
+            android:text="@string/users_peers"
+            app:layout_constraintTop_toBottomOf="@id/my_user_name" />
+
+
+        <core.left.io.framework.application.ui.widget.BaseRecyclerView
+            android:id="@+id/rv"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/user_recycler_top_padding"
+            app:brv_defaultAnimation="@android:anim/cycle_interpolator"
+            app:brv_emptyLayoutId="@id/empty_layout"
+            app:brv_viewMode="vertical"
+            tools:listitem="@layout/item_user_info"
+
+            app:layout_constraintTop_toBottomOf="@+id/peers" />
+
+    </android.support.constraint.ConstraintLayout>
+
+
+</layout>

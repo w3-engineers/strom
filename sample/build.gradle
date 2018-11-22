@@ -1,0 +1,150 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion build_versions.target_sdk
+    defaultConfig {
+        applicationId "io.left.core.sample"
+        minSdkVersion build_versions.min_sdk
+        targetSdkVersion build_versions.target_sdk
+        versionCode vCode()
+        versionName vName
+
+        def apkName = appName + "-" + getDateTime() + "-" + versionName
+        setProperty("archivesBaseName", apkName)
+
+        //When we need only one language this filter reduces APK size
+        resConfigs "en"
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        multiDexEnabled true
+
+        //Schema should upload with versioning tool so that record will be maintained of DB changed at same place
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = ["room.schemaLocation": "$projectDir/schemas".toString()]
+            }
+        }
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    dataBinding {
+        enabled = true
+    }
+    sourceSets {
+        main {
+            //An experimental approach to group all layouts. If developers does not like we can simply
+            //ignore grouping in this way
+            res.srcDirs = [
+                    'src/main/res/layouts/details',
+                    'src/main/res/layouts/datainput',
+                    'src/main/res/layouts/splash',
+                    'src/main/res/layouts',
+                    'src/main/res'
+            ]
+        }
+    }
+}
+
+dependencies {
+    //Support
+    implementation deps.support.app_compat
+    implementation deps.constraint_layout
+    implementation deps.support.recyclerview
+    //lifecycle
+    implementation deps.lifecycle.runtime
+    implementation deps.lifecycle.extensions
+    annotationProcessor deps.lifecycle.compiler
+    //LiveDataReactStream
+    implementation deps.livedata_reactive
+    //room with Rx
+    implementation deps.room.runtime
+    implementation deps.room.rxjava2
+    annotationProcessor deps.room.compiler
+    // RxJava
+    implementation deps.rx_android
+    implementation deps.rxjava2
+
+
+    //Retrofit
+    implementation deps.retrofit.runtime
+    implementation deps.retrofit.gson
+    implementation deps.okhttp_logging_interceptor
+    implementation 'com.jakewharton.retrofit:retrofit2-rxjava2-adapter:1.0.0'
+
+    // Dependencies for local unit tests
+    testImplementation deps.junit
+    testImplementation deps.hamcrest
+    testImplementation deps.arch_core.testing
+    testImplementation deps.mockito.all
+    testImplementation deps.truth
+    testImplementation deps.atsl.rules
+    implementation deps.espresso.core
+    androidTestImplementation deps.espresso.contrib
+    testImplementation deps.espresso.intents
+
+    // Android Testing Support Library's runner and rules
+    androidTestImplementation deps.atsl.runner
+    androidTestImplementation deps.atsl.rules
+    androidTestImplementation deps.room.testing
+    androidTestImplementation deps.arch_core.testing
+    androidTestImplementation deps.retrofit.mock
+
+
+    //framework
+    api deps.framework
+}
+//Configuration end
+
+
+
+//right-mesh config start
+buildscript {
+
+    //to load rm username and password from local.properties file
+    repositories {
+        maven {
+            url "https://research.rightmesh.io/artifactory/libs-local"
+            credentials {
+                username artifactory_app_username
+                password artifactory_app_password
+            }
+        }
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath 'io.left.rightmesh:rightmesh-plugin:1.6'
+    }
+}
+
+apply plugin: 'io.left.rightmesh.rightmesh-plugin'
+
+configurations.all {
+    resolutionStrategy.cacheChangingModulesFor 0, 'seconds'
+}
+
+repositories {
+    mavenCentral()
+    jcenter()
+    maven {
+        url "https://research.rightmesh.io/artifactory/libs-local"
+        credentials {
+            username artifactory_app_username
+            password artifactory_app_password
+        }
+    }
+
+    maven {
+        url "https://jitpack.io"
+    }
+}
+//right-mesh config end

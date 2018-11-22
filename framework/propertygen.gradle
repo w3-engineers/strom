@@ -1,0 +1,14 @@
+ext {
+
+    Properties properties = new Properties()
+    properties.load(project.rootProject.file('local.properties').newDataInputStream())
+
+    artifactory_app_username = properties.getProperty('rm_username')
+    artifactory_app_password = properties.getProperty('rm_password')
+    rm_ssid = properties.getProperty('rm_ssid', '')
+
+
+    Properties globalProperties = new Properties()
+    globalProperties.load(project.rootProject.file('gradle.properties').newDataInputStream())
+    port_number = globalProperties.getProperty("port_number")
+}

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent">
+
+        <ProgressBar
+            android:id="@+id/loading_progress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:visibility="visible"/>
+
+        <core.left.io.framework.application.ui.widget.BaseCompositeButton
+            android:id="@+id/empty_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:layout_centerInParent="true"
+            android:visibility="gone"
+            android:onClick="addItem"
+            android:padding="10dp"
+            app:btn_borderColor="#FFFFFF"
+            app:btn_borderWidth="2dp"
+            app:btn_defaultColor="#55acee"
+            app:btn_focusColor="#8cc9f8"
+            app:btn_fontIconSize="25sp"
+            app:btn_iconPosition="top"
+            app:btn_iconResource="@drawable/user"
+            app:btn_text="@string/add_user"
+            app:btn_textColor="#FFFFFF"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <core.left.io.framework.application.ui.widget.BaseRecyclerView
+            android:id="@+id/rv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:brv_defaultAnimation="false"
+            app:brv_emptyLayoutId="@id/empty_layout"
+            app:brv_progressViewId="@id/loading_progress"
+            app:brv_viewMode="vertical"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+
+    </android.support.constraint.ConstraintLayout>
+</layout>
