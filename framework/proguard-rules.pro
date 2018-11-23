@@ -19,3 +19,12 @@
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
+
+-keep class core.left.io.framework.application.ui.widget.BaseEditTextLengthChecker {*;}
+
+-dontwarn android.databinding.**
+-keep class core.left.io.framework.databinding.** {
+    <fields>;
+    <methods>;
+}
+-dontwarn java.lang.invoke.**

@@ -48,6 +48,8 @@ import android.view.View;
 
 import com.nineoldandroids.animation.ArgbEvaluator;
 
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
@@ -62,6 +64,7 @@ import core.left.io.framework.util.Text;
  */
 public class BaseEditText extends AppCompatEditText {
 
+    @Retention(RetentionPolicy.SOURCE)
     @IntDef({FLOATING_LABEL_NONE, FLOATING_LABEL_NORMAL, FLOATING_LABEL_HIGHLIGHT})
     @interface FloatingLabelType {
     }

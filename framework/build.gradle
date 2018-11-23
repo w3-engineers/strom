@@ -10,6 +10,9 @@ def isToastyEnabled = !project.hasProperty('org.w3.toasty') ||//If not specified
 if(isCrashLyticsEnabled) {
     apply plugin: 'io.fabric'
 }
+apply plugin: 'com.github.dcendents.android-maven'
+
+group = 'com.github.w3eleft'
 
 android {
 
@@ -22,7 +25,7 @@ android {
     buildTypes {
         release {
             minifyEnabled true
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
     compileOptions {
