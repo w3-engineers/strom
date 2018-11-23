@@ -1,1 +1,1 @@
-include ':framework', ':sample', ':imagepickersample', ':rightmeshsample'
+include ':framework', ':sample', ':imagepickersample'
