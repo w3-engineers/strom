@@ -1,6 +1,7 @@
 package core.left.io.framework;
 
 import android.content.Context;
+import android.support.annotation.Keep;
 import android.support.multidex.MultiDexApplication;
 
 import com.crashlytics.android.Crashlytics;
@@ -44,6 +45,7 @@ public class App extends MultiDexApplication {
         return null;
     }
 
+    @Keep
     protected void plantTimber() {
         Timber.plant(new Timber.Tree() {
 

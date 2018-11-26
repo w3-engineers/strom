@@ -1,11 +1,12 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="core.left.io.framework">
+    package="io.left.core.sample">
 
     <!--to use separate Application class for separate build-->
     <application
         tools:replace="name"
-        android:name=".BaseApplication">
+        android:name=".BaseApplication"
+        tools:ignore="GoogleAppIndexingWarning">
     </application>
 
 </manifest>

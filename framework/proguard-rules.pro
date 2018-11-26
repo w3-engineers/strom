@@ -28,3 +28,8 @@
     <methods>;
 }
 -dontwarn java.lang.invoke.**
+
+
+#-keepclassmembers class core.left.io.framework.App {
+#   protected void plantTimber();
+#}
