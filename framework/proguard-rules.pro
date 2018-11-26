@@ -33,3 +33,6 @@
 #-keepclassmembers class core.left.io.framework.App {
 #   protected void plantTimber();
 #}
+
+#TODO to use individual package and class wise
+-keep class core.left.io.** { *; }
