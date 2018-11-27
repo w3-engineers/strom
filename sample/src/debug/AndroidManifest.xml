@@ -4,7 +4,7 @@
 
     <!--to use separate Application class for separate build-->
     <application
-        tools:replace="name"
+        tools:replace="android:name"
         android:name=".BaseApplication"
         tools:ignore="GoogleAppIndexingWarning">
     </application>

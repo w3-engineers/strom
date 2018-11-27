@@ -27,6 +27,27 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+        //During debug build we use the module dependency
+        debug {
+            dependencies {
+                //framework
+                debugImplementation deps.framework
+            }
+        }
+        //during jitpack build we omit the dependency on module and build with remote dependency
+        remote {
+
+            debuggable true
+            //Default sigin config explicitly applied to debug
+            signingConfig signingConfigs.debug
+
+            dependencies {
+                //framework
+                //dependency variant
+                implementation deps.framework_remote
+                implementation deps.leak_canary
+            }
+        }
     }
 
     compileOptions {
@@ -57,8 +78,5 @@ dependencies {
     implementation deps.support.app_compat
     implementation deps.constraint_layout
     implementation deps.support.recyclerview
-
-    //framework
-    api deps.framework
 }
 //Configuration end
