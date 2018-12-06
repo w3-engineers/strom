@@ -43,6 +43,12 @@ subprojects {
 
                 details.useVersion versions.lifecycle
 
+            } else if (details.requested.group == 'com.android.support'
+                    && !details.requested.name.contains('multidex')
+                    && !details.requested.name.contains('Coordinat')) {
+
+                details.useVersion versions.support
+
             }
         }
     }
