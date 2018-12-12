@@ -21,8 +21,7 @@ before_script:
 
 script: 
 ./gradlew test
-./gradlew testDebugUnitTest
-./gradlew createDebugCoverageReport
+./gradlew build jacocoTestReport
 
-after_success:
-  - mvn clean test jacoco:report coveralls:jacoco
+after_success: 
+  — bash <(curl -s https://codecov.io/bash)
