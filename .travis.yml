@@ -20,9 +20,9 @@ before_script:
   - adb shell input keyevent 82 &
 
 script: 
-  ./gradlew test
-  ./gradlew testDebugUnitTest
-  ./gradlew createDebugCoverageReport
+  - ./gradlew test
+  - ./gradlew testDebugUnitTest
+  - ./gradlew createDebugCoverageReport
 
 after_success:
   — bash <(curl -s https://codecov.io/bash)
