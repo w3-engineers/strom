@@ -25,4 +25,4 @@ script:
   ./gradlew createDebugCoverageReport
 
 after_success:
-  - mvn clean test jacoco:report coveralls:jacoco
+  — bash <(curl -s https://codecov.io/bash)
