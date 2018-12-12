@@ -1,0 +1,3 @@
+call gradlew testDebugUnitTest
+echo gradlew createDebugCoverageReport
+call gradlew createDebugCoverageReport
