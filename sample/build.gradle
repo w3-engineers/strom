@@ -1,3 +1,16 @@
+plugins {
+    id 'jacoco'
+    id 'com.github.kt3k.coveralls' version '2.6.3'
+}
+
+jacoco {
+    toolVersion = "$jacocoVersion"
+}
+
+tasks.withType(Test) {
+    jacoco.includeNoLocationClasses = true
+}
+
 apply plugin: 'com.android.application'
 
 android {
@@ -115,3 +128,22 @@ dependencies {
     remoteImplementation deps.leak_canary
 }
 //Configuration end
+
+
+//Test report
+task jacocoTestReport(type: JacocoReport, dependsOn: ['test', 'createDebugCoverageReport']) {
+    reports {
+        xml.enabled = true
+        html.enabled = true
+    }
+
+    def fileFilter = ['**/R.class', '**/R$*.class', '**/BuildConfig.*', '**/Manifest*.*', '**/*Test*.*', 'android/**/*.*', '**/*$[0-9].*']
+    def debugTree = fileTree(dir: "$project.buildDir/tmp/kotlin-classes/debug", excludes: fileFilter)
+    def mainSrc = "$project.projectDir/src/main/java"
+
+    sourceDirectories = files([mainSrc])
+    classDirectories = files([debugTree])
+    executionData = fileTree(dir: project.buildDir, includes: ['jacoco/testDebugUnitTest.exec',
+                                                               'outputs/code_coverage/debugAndroidTest/connected/**/*.ec'])
+}
+//Test report end

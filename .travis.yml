@@ -13,7 +13,7 @@ android:
     - extra-android-m2repository
 
 script:
-  ./gradlew sample:createDebugCoverageReport
+  ./gradlew test jacocoTestReport coveralls
 
-after_success:
-  — bash <(curl -s https://codecov.io/bash)
+#after_success:
+#  — bash <(curl -s https://codecov.io/bash)
