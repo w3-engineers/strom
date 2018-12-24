@@ -152,7 +152,7 @@ coveralls {
 }
 
 tasks.coveralls {
-    dependsOn 'test'
+    dependsOn 'createDebugCoverageReport'
     onlyIf { System.env.'CI' }
 }
 //Test report end
