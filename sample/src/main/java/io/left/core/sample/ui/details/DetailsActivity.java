@@ -24,11 +24,11 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.view.MenuItem;
 import android.view.View;
 
-import core.left.io.framework.application.data.helper.BaseResponse;
-import core.left.io.framework.application.ui.base.BaseActivity;
-import core.left.io.framework.application.ui.base.ItemClickListener;
-import core.left.io.framework.application.ui.util.DialogUtil;
-import core.left.io.framework.application.ui.util.DialogUtil.DialogListener;
+import com.w3engineers.ext.strom.application.data.BaseResponse;
+import com.w3engineers.ext.strom.application.ui.base.BaseActivity;
+import com.w3engineers.ext.strom.application.ui.base.ItemClickListener;
+import com.w3engineers.ext.strom.application.ui.util.DialogUtil;
+import com.w3engineers.ext.strom.application.ui.util.DialogUtil.DialogListener;
 import io.left.core.sample.R;
 import io.left.core.sample.data.database.user.UserEntity;
 import io.left.core.sample.data.remote.user.UserEntityResponse;

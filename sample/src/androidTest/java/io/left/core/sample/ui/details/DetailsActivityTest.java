@@ -13,7 +13,7 @@ import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 
-import core.left.io.framework.application.ui.widget.BaseRecyclerView;
+import com.w3engineers.ext.strom.application.ui.widget.BaseRecyclerView;
 import io.left.core.sample.R;
 
 import static android.support.test.espresso.Espresso.onView;

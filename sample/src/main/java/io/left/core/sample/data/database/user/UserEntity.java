@@ -9,7 +9,7 @@ import android.os.Parcel;
 
 import com.google.gson.annotations.SerializedName;
 
-import core.left.io.framework.application.data.helper.local.base.BaseEntity;
+import com.w3engineers.ext.strom.application.data.helper.local.base.BaseEntity;
 import io.left.core.sample.BR;
 import io.left.core.sample.data.local.database.ColumnNames;
 import io.left.core.sample.data.local.database.TableNames;

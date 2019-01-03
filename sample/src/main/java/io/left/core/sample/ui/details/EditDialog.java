@@ -22,8 +22,8 @@ import android.support.v4.app.FragmentManager;
 import android.view.View;
 import android.widget.Button;
 
-import core.left.io.framework.application.ui.widget.BaseDialog;
-import core.left.io.framework.application.ui.widget.BaseEditText;
+import com.w3engineers.ext.strom.application.ui.widget.BaseDialog;
+import com.w3engineers.ext.strom.application.ui.widget.BaseEditText;
 import io.left.core.sample.R;
 import io.left.core.sample.data.database.user.UserEntity;
 import io.left.core.sample.data.service.ServiceLocator;

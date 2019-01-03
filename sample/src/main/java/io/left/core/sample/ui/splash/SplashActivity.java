@@ -21,7 +21,7 @@ import android.support.annotation.NonNull;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 
-import core.left.io.framework.application.ui.base.BaseActivity;
+import com.w3engineers.ext.strom.application.ui.base.BaseActivity;
 import io.left.core.sample.R;
 import io.left.core.sample.data.service.ServiceLocator;
 import io.left.core.sample.databinding.ActivitySplashBinding;

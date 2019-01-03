@@ -1,4 +1,22 @@
-# Android Framework
+# Indexing
+
+* [Summary](#summary)
+* [Video Tutorial](#video-tutorial)
+* [Guideline step by step](#guideline-step-by-step)
+* [Project guideline](#project-guideline)
+* [RightMesh Integration](#rightmesh-integration)
+* [Room](#room)
+* [Outgoing event](#outgoing-event)
+* [ImagePicker](#imagepicker)
+* [RecyclerView](#recyclerview)
+* [BaseToolBar](#basetoolbar)
+* [Widget](#widget)
+* [Dialog](#dialog)
+* [Interface](#interface)
+* [Issues!!!](#issues)
+
+
+# Summary
 This project is to prepare a framework for W3Engineers android development.
 Initially this is based on our [base](https://code.leftofthedot.com/anjan/mvp-architecture-app) project.
 
@@ -15,48 +33,58 @@ without including in their gradle file (Timber, Multidex, Crashlytics, Debug Dat
 * Timber facilitates clickable logs with method name, line number prefixed
 and automatic TAG of class name. It distinguishes expected release build
 and debug build behavior
-* BaseSplashViewModel provides time calculation facility and enforce ViewModel 
+* BaseSplashViewModel provides time calculation facility and enforce ViewModel
 LiveData communication (provided _sample_ app has the usage)
 
-### Usage
-------------------------------------------------------------------------
-Framework minimum SDK vesion is 16.
 
-1. Go to [this link](https://code.leftofthedot.com/azim/android-framework)
+### Video Tutorial
+------------------------------------------------------------------------
+
+* All the processes are showing in this video step by step
+<br/>[![Framework](https://img.youtube.com/vi/YHGghTc-ZI4/0.jpg)](https://youtu.be/YHGghTc-ZI4 "Android Framework")
+
+
+### Guideline step by step
+------------------------------------------------------------------------
+
+Framework minimum SDK vesion is 16 and target SDK version is 27.
+
+1. At first you will create a new project, after loading this project you should go your project directory
+and need to sync with frame-work project
+2. Go to [this link](https://code.leftofthedot.com/azim/android-framework)
 to clone the project to your local machine.
-2. In your Android project root's folder copy [versions.gradle](versions.gradle) file <br/>
+3. In your Android project root's folder copy [versions.gradle](versions.gradle) file <br/>
 <img src="resources/snaps/versions.gradle_copy.png" alt="drawing" width="200px" height="112PX"/>
-3. Copy *apply from: 'versions.gradle'* and *maven { url "https://jitpack.io" }* to your project's root *build.gradle*
+4. Copy *apply from: 'versions.gradle'* and *maven { url "https://jitpack.io" }* to your project's root *build.gradle*
 file as shown below <br/>
 <img src="resources/snaps/version_apply_and_toast_repo_added.PNG" alt="drawing" width="200px" height="112PX"/>
-4. Now import *framework* module from the cloned project by clicking
+5. Now import *framework* module from the cloned project by clicking
 *File -> New -> Import Module...*
 <br/><img src="resources/snaps/framework_module.png" alt="drawing" width="200px" height="112PX"/>
-5. [*RM*] Copy *apply from: 'framework/propertygen.gradle'* and add it the below of *apply from: 'versions.gradle'*
-6. [*RM*] Copy artifactory_app_key and port number from your [key list of **RightMesh** account](https://developer.rightmesh.io/keys)
+6. [*RM*] Copy *apply from: 'framework/propertygen.gradle'* and add it the below of *apply from: 'versions.gradle'*
+7. [*RM*] Copy artifactory_app_key and port number from your [key list of **RightMesh** account](https://developer.rightmesh.io/keys)
 and add it in *gradle.properties*
 
     ```
     artifactory_app_key = ----
     port_number = ----
     ```
-
-7. Go to *File -> Project Structure...*
-8. Add *Module Dependency* as shown below <br/>
+8. Open *settings.gradle* file and copy *include ':framework'* then **Sync** your project
+9. Go to *File -> Project Structure...*
+10. Add *Module Dependency* as shown below <br/>
 <img src="resources/snaps/add_module_dependency.png" alt="drawing" width="200px" height="112PX"/>
-9. If you do not find framework listed here then open *settings.gradle*
-file and copy *include ':framework'* then repeat step 7 to 8
-10. Show *framework* module and press *ok* then *sync now* the code base
-11. You should use *api* rather *implementation* to import the *framework*
+11. Show *framework* module and you should use *api* rather *implementation* to import the *framework*
+12. Press *ok* then *sync now* the code base
 in your project level *build.gradle* file
 <br/><img src="resources/snaps/import_using_api.PNG" alt="drawing" width="200px" height="112PX"/>
-12. [*RM*] Copy *artifactory_app_username* and *artifactory_app_password* from [**RightMesh** account](https://developer.rightmesh.io)
-and add it in *local.properties*
+13. [*RM*] Copy *artifactory_app_username* and *artifactory_app_password* from [**RightMesh** account](https://developer.rightmesh.io)
+and add it in *local.properties*. You should also set SSID name in *rm_ssid*
     ```
+    rm_ssid= ----
     rm_username = ----
     rm_password = ----
     ```
-13. [*RM*] Add RightMesh configuration in your app level *build.gradle* file so you should copy the below snippet
+14. [*RM*] Add RightMesh configuration in your app level *build.gradle* file so you should copy the below snippet
 
     ```
     //right-mesh config start
@@ -106,7 +134,7 @@ and add it in *local.properties*
     ```
 
 
-14. If you faced any life-cycle version related problem then you should add the bellow snippet
+15. If you faced any life-cycle version related problem then you should add the bellow snippet
 to you projects root level *build.gradle* file
 
     ```
@@ -125,7 +153,7 @@ to you projects root level *build.gradle* file
     }
     ```
 
-15. You should use Multidex, databinding and Java 1.8 compatibility. So, add
+16. You should use Multidex, databinding and Java 1.8 compatibility. So, add
 below code inside *android* tag in module level *build.gradle*:
 
     ```
@@ -148,7 +176,7 @@ below code inside *android* tag in module level *build.gradle*:
         multiDexEnabled true
     }
     ```
-16. If you do not want crashlytics then add *org.w3.crashlytics=false* in your
+17. If you do not want crashlytics then add *org.w3.crashlytics=false* in your
 *gradle.properties* file:
 ```
 org.w3.crashlytics=false
@@ -156,30 +184,41 @@ org.w3.crashlytics=false
 also remove *Fabric.with(this, new Crashlytics());* from [App](https://code.leftofthedot.com/azim/android-framework/blob/master/framework/src/main/java/core/left/io/framework/App.java)
 file otheriwse simply put your crashlytics *apiKey*
 <br/>**Above process would be simplified a lot as we release the jcenter dependency**
-17. To start with the framework you can create a new Activity as shown below.
+18. To start with the framework you can create a new Activity as shown below.
 <br/><img src="resources/snaps/new_activity.PNG" alt="drawing" width="200px" height="112PX"/>
 <br/>You should extend [BaseActivity](https://code.leftofthedot.com/azim/android-framework/blob/master/framework/src/main/java/core/left/io/framework/application/ui/base/BaseActivity.java)
 always rather native activity.
-18. Implement required methods. They are pretty self explanatory.
-19. Generate a layout file and return the id through *getLayoutId()* method.
+19. Implement required methods. They are pretty self explanatory.
+20. Generate a layout file and return the id through *getLayoutId()* method.
 Do not forget to add Activity to manifest file.
-20. If it is a simple Activity then upon hitting the run button you are good
+21. If it is a simple Activity then upon hitting the run button you are good
 to start with the framework.
-21. For more info please check below video:
-<br/>[![Framework](http://trustsolution.id/wp-content/uploads/2014/08/Plugin_Framework.png)](https://youtu.be/YHGghTc-ZI4 "Android Framework")
 22. **Inside the project's [sample](https://code.leftofthedot.com/azim/android-framework/tree/master/sample) and
  [imagepickersample](https://code.leftofthedot.com/azim/android-framework/tree/master/imagepickersample) application you will get
 major usages/benefits of the framework**
 
 * Framework comes with internal distinguished behavior of release and debug build.
-If you want to extend or modify the behavior then please use 
+If you want to extend or modify the behavior then please use
 [BaseApplication](https://code.leftofthedot.com/azim/android-framework/blob/rm_data_send_api/framework/src/debug/java/core/left/io/framework/BaseApplication.java)
 and [BaseReleaseApplication](https://code.leftofthedot.com/azim/android-framework/blob/rm_data_send_api/framework/src/release/java/core/left/io/framework/BaseReleaseApplication.java)
 
+### Project guideline
+------------------------------------------------------------------------
 **You can read the guideline [here](resources/Android-Project-Guideline_v1.1.pdf).**
 
+### RightMesh Integration
+------------------------------------------------------------------------
+* All the processes are showing in this video step by step
+
+<br/>[![RM Integration](https://img.youtube.com/vi/r1UdKhhSgNI/0.jpg)](https://youtu.be/r1UdKhhSgNI "RM Integration")
+
+**`N.B.` You should use Timber insted of Log**
+
+**In this video only showing primary stage of integrating RightMesh with your project.**
 
 ### Room
+------------------------------------------------------------------------
+
 Framework facilitates room with
 [database creation](framework\src\main\java\core\left\io\framework\application\data\helper\local\base\BaseDatabase.java),
 [migration](framework\src\main\java\core\left\io\framework\application\data\helper\local\base\BaseMigration.java),
@@ -196,6 +235,8 @@ query etc and easily maintain their database.
 
 
 ### Outgoing event
+------------------------------------------------------------------------
+
 [Event](framework\src\main\java\core\left\io\framework\util\helper\action\Event.java)
 and [ForEvent](framework\src\main\java\core\left\io\framework\util\helper\action\ForEvent.java)
 are two classes to manage outgoing events with Reactive and LiveData compatibility approach.
@@ -203,6 +244,8 @@ You will find usage of these [here](sample\src\main\java\io\left\core\sample\ui\
 
 
 ### ImagePicker
+------------------------------------------------------------------------
+
 To pick image from device. It combines camera and gallery both. Developers
 are encouraged to use [this](framework\src\main\java\core\left\io\framework\util\helper\imgpicker\ImagePicker.java)
 class to pick images. It provides varipus benefit with databinding using
@@ -211,26 +254,8 @@ It uses BindingAdapter which use Glide also it provide the scope to provide
 optional placeholder image which is pretty much convenient with Glide then
 traditional way. [Here](imagepickersample\src\main\res\layouts\image_picker\layout\activity_image_picker.xml) is an example.
 
-**Example of how to use BaseToolBar:**
-
-
-`activity_home.xml`
-
-    <core.left.io.framework.application.ui.base.BaseToolBar
-      android:id="@+id/home_toolbar"
-      ...
-      app:showHomeButton="true"            // this will show toolbar home button
-      app:customTitle="@string/app_name"  // this will show toolbar title
-      >
-    </core.left.io.framework.application.ui.base.BaseToolBar>
-    
-    
-`HomeActivity.java`    
-
-     @Override
-         protected int getToolbarId() {
-             return R.id.home_toolbar;
-         }
+### RecyclerView
+------------------------------------------------------------------------
 
 ***Example of how to use BaseRecyclerView:***
 
@@ -249,7 +274,7 @@ BaseRecyclerView is a wrapper class of android RecyclerView
             android:text="No data found"
             android:visibility="gone" />
 
-        <core.left.io.framework.application.ui.widget.BaseRecyclerView
+        <com.w3engineers.ext.strom.application.ui.widget.BaseRecyclerView
             android:id="@+id/rv"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -263,17 +288,88 @@ BaseRecyclerView is a wrapper class of android RecyclerView
 - `app:brv_viewMode="vertical" ` indicate how the RecyclerView scroll horizontally or vertically
 - `app:brv_defaultAnimation="false" ` Mark default animation enable or disable
 
-***Example of how to use BaseButton:***
+***BaseAdapter***
+
+BaseAdapter is a generic RecyclerView adapter which is capable to work with all types of data model.
+
+***Example***
+```
+public class ExampleAdapter extends BaseAdapter<User> {
+    @Override
+    public boolean isEqual(User left, User right) {
+        return false;
+    }
+
+    @Override
+    public BaseAdapterViewHolder newViewHolder(ViewGroup parent, int viewType) {
+        return null;
+    }
+}
+```
+Child class needs to implement *isEqual() and newViewHolder()* methods. No needs to override **onBindViewHolder()**
+
+***BaseViewHolder***
+
+**Example**
+```
+private class Viewholder extends BaseAdapterViewHolder<User>{
+
+        public Viewholder(ViewDataBinding viewDataBinding) {
+            super(viewDataBinding);
+        }
+
+        @Override
+        public void bind(User item) {
+
+        }
+
+        @Override
+        public void onClick(View v) {
+
+        }
+    }
+```
+This is generic view holder class. Developer needs to implement **bind()** method.
+
+### BaseToolBar
+------------------------------------------------------------------------
+
+`activity_home.xml`
+
+    <com.w3engineers.ext.strom.application.ui.base.BaseToolBar
+      android:id="@+id/home_toolbar"
+      ...
+      app:showHomeButton="true"            // this will show toolbar home button
+      app:customTitle="@string/app_name"  // this will show toolbar title
+      >
+    </com.w3engineers.ext.strom.application.ui.base.BaseToolBar>
+
+
+`HomeActivity.java`
+
+     @Override
+         protected int getToolbarId() {
+             return R.id.home_toolbar;
+         }
+
+### Widget
+------------------------------------------------------------------------
+
+***BaseButton:***
 
 BaseButton is a custom View class. You can design any types of Button with and without image, round corner and there are various properties with it.
+
+-`app:bb_drawable="@drawable/button_gradient_blue"` is a mandatory field. If developer does not set this property
+it may causes Runtime exception
+
 ```
-<core.left.io.framework.application.ui.widget.BaseCompositeButton
+<com.w3engineers.ext.strom.application.ui.widget.BaseCompositeButton
                     android:id="@+id/btn_facebook_like"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"
                     android:padding="10dp"
-                    android:textStyle="italic"  
+                    android:textStyle="italic"
                     app:btn_borderColor="#FFFFFF"
                     app:btn_borderWidth="1dp"                       // Button border width
                     app:btn_defaultColor="#3b5998"
@@ -283,7 +379,7 @@ BaseButton is a custom View class. You can design any types of Button with and w
                     app:btn_iconResource="@drawable/facebook"
                     app:btn_radius="30dp"                           // Button corner radious
                     app:btn_text="Like my facebook page"
-                    app:btn_disabledBorderColor="@color/colorAccent" 
+                    app:btn_disabledBorderColor="@color/colorAccent"
                     app:btn_disabledTextColor="@color/colorAccent"
                     app:btn_disabledColor="@color/colorAccent"
                     app:btn_textGravity="start"
@@ -292,13 +388,13 @@ BaseButton is a custom View class. You can design any types of Button with and w
 ```
 
 Till now nothing is mandatory, there are so many options here. This custom class will support for all types of button.
- 
-***Example of how to use BaseEditText:***
+
+***BaseEditText:***
 
 BaseEditText is a custom EditText wrapper, using this class it is possible to design EditText with and without label
-max, min char length and there are various options with it. 
+max, min char length and there are various options with it.
 ```
-<core.left.io.framework.application.ui.widget.BaseEditText
+<com.w3engineers.ext.strom.application.ui.widget.BaseEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
@@ -315,15 +411,15 @@ max, min char length and there are various options with it.
                 app:bet_helperText="Helper"               // If it needs to help user provide some example
                 app:bet_helperTextAlwaysShown="true"
                 app:bet_helperTextColor="@color/colorAccent"
-                app:bet_primaryColor="@color/accent"/> 
+                app:bet_primaryColor="@color/accent"/>
 ```
 
-Use this class and its necessary properties. 
+Use this class and its necessary properties.
 
-***Example of how to use BaseButton***
+***BaseButton***
 ```
 
-<core.left.io.framework.application.ui.widget.BaseButton
+<com.w3engineers.ext.strom.application.ui.widget.BaseButton
             android:id="@+id/btn_show_items"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -335,10 +431,11 @@ Use this class and its necessary properties.
             app:layout_constraintRight_toRightOf="parent"
             app:bb_drawable="@drawable/button_gradient_blue"/>
 ```
--`app:bb_drawable="@drawable/button_gradient_blue"` is a mandatory field. If developer does not set this property
-it may causes Runtime exception 
 
-### BaseDialog:
+### Dialog
+------------------------------------------------------------------------
+
+***BaseDialog***
 
 Base dialog is a custom dialog class, which force developer to set a layout file for custom design
 ```
@@ -347,7 +444,7 @@ Base dialog is a custom dialog class, which force developer to set a layout file
 ```
 Are the two methods needs to child class implement.
 
-### DialogUtil:
+***DialogUtil***
 
 There are three overloading static methods here
 ```
@@ -355,50 +452,11 @@ public static void showDialog(Context context, String message, DialogListener li
 public static void showDialog(Context context, String title, String message, DialogListener listener)
 public static void showDialog(Context context, String title, String message, String positiveText, String negativeText, final DialogListener listener)
 
-``` 
+```
 Developer can call any one as his/her needs. It will show a default dialog
 
-### BaseAdapter:
-BaseAdapter is a generic RecyclerView adapter which is capable to work with all types of data model.
-
-***Example***
-```
-public class ExampleAdapter extends BaseAdapter<User> {
-    @Override
-    public boolean isEqual(User left, User right) {
-        return false;
-    }
-
-    @Override
-    public BaseViewHolder newViewHolder(ViewGroup parent, int viewType) {
-        return null;
-    }
-}
-```
-Child class needs to implement *isEqual() and newViewHolder()* methods. No needs to override **onBindViewHolder()**
-### BaseViewHolder:
-**Example**
-```
-private class Viewholder extends BaseViewHolder<User>{
-
-        public Viewholder(ViewDataBinding viewDataBinding) {
-            super(viewDataBinding);
-        }
-
-        @Override
-        public void bind(User item) {
-            
-        }
-
-        @Override
-        public void onClick(View v) {
-
-        }
-    }
-```
-This is generic view holder class. Developer needs to implement **bind()** method.
-
-# Interface:
+### Interface
+------------------------------------------------------------------------
 
 ***ItemClickListener:***
 ```
@@ -434,9 +492,12 @@ For item long click listener implement this interface in UI (Activity or Fragmen
 Batch script file to run various tools integrated (checkstyle, playPublish,
 pmd, unit test, instrumentation test etc.)
 
-# Issues!!!
-If you face any bug or want any particular feature in framework please go to 
+### Issues!!!
+------------------------------------------------------------------------
+
+If you face any bug or want any particular feature in framework please go to
 [this link](https://code.leftofthedot.com/azim/android-framework/issues), generate
 a new issue by putting a excel sheet link
 [of this sample format](https://docs.google.com/spreadsheets/d/1WccbipXNYIHxGD0-6DQWXdrTQuQ0aLcAz4NoiT3ooXs)
-in the description
+in the description.
+Planning doc is [here](https://docs.google.com/presentation/d/1CaY_6sgtealmR5VbpFeIGcfeG6SHEzFCWl76c9Lhnz8/edit#slide=id.g380e0677f6_0_0).

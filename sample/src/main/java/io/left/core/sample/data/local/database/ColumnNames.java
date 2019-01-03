@@ -20,7 +20,7 @@ package io.left.core.sample.data.local.database;
  * ****************************************************************************
  */
 
-import core.left.io.framework.application.data.helper.local.base.BaseColumnNames;
+import com.w3engineers.ext.strom.application.data.helper.local.base.BaseColumnNames;
 
 public interface ColumnNames extends BaseColumnNames {
     //Users table

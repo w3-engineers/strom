@@ -1,6 +1,6 @@
 package io.left.core.sample.data.remote.user;
 
-import core.left.io.framework.application.data.helper.BaseResponse;
+import com.w3engineers.ext.strom.application.data.BaseResponse;
 import io.left.core.sample.data.database.user.UserDataSource;
 import io.left.core.sample.data.database.user.UserEntity;
 import io.reactivex.Flowable;

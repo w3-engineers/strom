@@ -24,7 +24,7 @@ import android.os.StrictMode;
 
 import com.squareup.leakcanary.LeakCanary;
 
-import core.left.io.framework.App;
+import com.w3engineers.ext.strom.App;
 import timber.log.Timber;
 
 /**

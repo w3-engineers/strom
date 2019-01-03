@@ -2,7 +2,7 @@ package io.left.core.sample.ui.details;
 
 import android.arch.lifecycle.MutableLiveData;
 
-import core.left.io.framework.application.ui.base.BaseRxViewModel;
+import com.w3engineers.ext.strom.application.ui.base.BaseRxViewModel;
 import io.left.core.sample.data.database.user.UserDataSource;
 import io.left.core.sample.data.remote.user.UserEntityResponse;
 

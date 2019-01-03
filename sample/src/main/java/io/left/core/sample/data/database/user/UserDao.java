@@ -5,7 +5,7 @@ import android.arch.persistence.room.Query;
 
 import java.util.List;
 
-import core.left.io.framework.application.data.helper.local.base.BaseDao;
+import com.w3engineers.ext.strom.application.data.helper.local.base.BaseDao;
 import io.left.core.sample.data.local.database.ColumnNames;
 import io.left.core.sample.data.local.database.TableNames;
 import io.left.core.sample.data.remote.user.UserEntityResponse;

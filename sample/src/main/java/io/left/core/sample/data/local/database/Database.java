@@ -2,8 +2,8 @@ package io.left.core.sample.data.local.database;
 
 import android.content.Context;
 
-import core.left.io.framework.application.data.helper.local.base.BaseDatabase;
-import core.left.io.framework.application.data.helper.local.base.BaseMigration;
+import com.w3engineers.ext.strom.application.data.helper.local.base.BaseDatabase;
+import com.w3engineers.ext.strom.application.data.helper.local.base.BaseMigration;
 import io.left.core.sample.BuildConfig;
 import io.left.core.sample.R;
 import io.left.core.sample.data.database.user.UserDao;

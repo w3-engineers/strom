@@ -5,9 +5,9 @@ import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.view.View;
 
-import core.left.io.framework.application.ui.base.BaseActivity;
-import core.left.io.framework.util.helper.imgpicker.ImagePicker;
-import core.left.io.framework.util.helper.imgpicker.ImagePickerDataModel;
+import com.w3engineers.ext.strom.application.ui.base.BaseActivity;
+import com.w3engineers.ext.strom.util.helper.imgpicker.ImagePicker;
+import com.w3engineers.ext.strom.util.helper.imgpicker.ImagePickerDataModel;
 import io.left.core.imagepickersample.R;
 import io.left.core.imagepickersample.databinding.ActivityImagePickerBinding;
 

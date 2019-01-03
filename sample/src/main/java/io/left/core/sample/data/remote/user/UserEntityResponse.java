@@ -2,7 +2,7 @@ package io.left.core.sample.data.remote.user;
 
 import java.util.List;
 
-import core.left.io.framework.application.data.helper.BaseResponse;
+import com.w3engineers.ext.strom.application.data.BaseResponse;
 import io.left.core.sample.data.database.user.UserEntity;
 
 /**

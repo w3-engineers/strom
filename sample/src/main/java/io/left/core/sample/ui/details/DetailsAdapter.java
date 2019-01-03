@@ -16,7 +16,7 @@ package io.left.core.sample.ui.details;
 import android.databinding.ViewDataBinding;
 import android.view.ViewGroup;
 
-import core.left.io.framework.application.ui.base.BaseAdapter;
+import com.w3engineers.ext.strom.application.ui.base.BaseAdapter;
 import io.left.core.sample.R;
 import io.left.core.sample.data.database.user.UserEntity;
 import io.left.core.sample.databinding.ItemUserInfoLocalBinding;

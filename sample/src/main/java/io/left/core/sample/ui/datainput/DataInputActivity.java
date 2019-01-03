@@ -20,8 +20,8 @@ import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import android.view.View;
 
-import core.left.io.framework.application.ui.base.BaseActivity;
-import core.left.io.framework.util.helper.Toaster;
+import com.w3engineers.ext.strom.application.ui.base.BaseActivity;
+import com.w3engineers.ext.strom.util.helper.Toaster;
 import io.left.core.sample.R;
 import io.left.core.sample.data.database.user.UserEntity;
 import io.left.core.sample.data.service.ServiceLocator;

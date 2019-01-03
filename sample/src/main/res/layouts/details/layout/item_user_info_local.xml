@@ -28,7 +28,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <core.left.io.framework.application.ui.widget.BaseCompositeButton
+        <com.w3engineers.ext.strom.application.ui.widget.BaseCompositeButton
             android:id="@+id/btn_edit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -47,7 +47,7 @@
             app:btn_text="@string/edit"
             app:btn_textColor="#FFFFFF"/>
 
-        <core.left.io.framework.application.ui.widget.BaseCompositeButton
+        <com.w3engineers.ext.strom.application.ui.widget.BaseCompositeButton
             android:id="@+id/btn_delete"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

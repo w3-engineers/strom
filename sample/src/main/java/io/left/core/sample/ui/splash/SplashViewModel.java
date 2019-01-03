@@ -2,7 +2,7 @@ package io.left.core.sample.ui.splash;
 
 import android.app.Application;
 
-import core.left.io.framework.application.ui.base.BaseSplashViewModel;
+import com.w3engineers.ext.strom.application.ui.base.BaseSplashViewModel;
 
 
 /**
