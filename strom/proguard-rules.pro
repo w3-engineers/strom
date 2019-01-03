@@ -35,4 +35,4 @@
 #}
 
 #TODO to use individual package and class wise
--keep class core.left.io.** { *; }
+-keep class com.w3engineers.ext.** { *; }
