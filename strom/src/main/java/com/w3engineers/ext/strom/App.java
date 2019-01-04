@@ -18,7 +18,6 @@ import timber.log.Timber;
 * * Created by:
 * * Name : Anjan Debnath
 * * Date : 10/25/17
-* * Email : anjan@w3engineers.com
 * *
 * * Purpose: Base Application class
 * *

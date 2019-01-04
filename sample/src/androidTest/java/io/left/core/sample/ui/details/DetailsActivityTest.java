@@ -2,10 +2,11 @@ package io.left.core.sample.ui.details;
 
 import android.support.test.espresso.UiController;
 import android.support.test.espresso.ViewAction;
-import android.support.test.rule.ActivityTestRule;
-import android.support.v7.widget.RecyclerView;
 import android.support.test.espresso.contrib.RecyclerViewActions;
+import android.support.test.rule.ActivityTestRule;
 import android.view.View;
+
+import com.w3engineers.ext.strom.application.ui.widget.BaseRecyclerView;
 
 import org.hamcrest.Matcher;
 import org.junit.After;
@@ -13,18 +14,14 @@ import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 
-import com.w3engineers.ext.strom.application.ui.widget.BaseRecyclerView;
 import io.left.core.sample.R;
 
 import static android.support.test.espresso.Espresso.onView;
-import static android.support.test.espresso.action.ViewActions.click;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
-import static org.junit.Assert.*;
 
 /*
  *  ****************************************************************************
  *  * Created by : Md. Azizul Islam on 7/11/2018 at 10:17 PM.
- *  * Email : azizul@w3engineers.com
  *  *
  *  * Purpose:
  *  *

@@ -3,7 +3,6 @@ package io.left.core.sample.ui.details;
 /*
  *  ****************************************************************************
  *  * Created by : Md. Azizul Islam on 7/10/2018 at 12:02 PM.
- *  * Email : azizul@w3engineers.com
  *  *
  *  * Purpose:
  *  *

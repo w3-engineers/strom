@@ -3,7 +3,6 @@ package io.left.core.sample.ui.datainput;
 /*
  *  ****************************************************************************
  *  * Created by : Md. Azizul Islam on 7/5/2018 at 6:57 PM.
- *  * Email : azizul@w3engineers.com
  *  *
  *  * Purpose:
  *  *

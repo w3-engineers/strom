@@ -13,7 +13,6 @@ import io.reactivex.Single;
  * Proprietary and confidential
  * <br>----------------------------------------------------------------------------
  * <br>Created by: Ahmed Mohmmad Ullah (Azim) on [2018-07-25 at 11:27 AM].
- * <br>Email: azim@w3engineers.com
  * <br>----------------------------------------------------------------------------
  * <br>Project: android-framework.
  * <br>Code Responsibility: <Purpose of code>

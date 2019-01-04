@@ -13,7 +13,6 @@ import es.dmoral.toasty.Toasty;
 * * Created by:
 * * Name : SUDIPTA KUMAR PAIK
 * * Date : 2/1/18
-* * Email : sudipta@w3engineers.com
 * *
 * * Purpose : Toaster for all type of toast showing
 * *

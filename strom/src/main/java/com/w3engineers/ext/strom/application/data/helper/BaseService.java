@@ -13,7 +13,6 @@ import android.support.annotation.Nullable;
  * Proprietary and confidential
  * <br>----------------------------------------------------------------------------
  * <br>Created by: Ahmed Mohmmad Ullah (Azim) on [2018-06-04 at 3:51 PM].
- * <br>Email: azim@w3engineers.com
  * <br>----------------------------------------------------------------------------
  * <br>Project: android-framework.
  * <br>Code Responsibility: User should use {@link Service} by extending {@link BaseService}

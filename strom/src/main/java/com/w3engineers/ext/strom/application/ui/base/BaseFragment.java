@@ -26,7 +26,6 @@ import io.reactivex.disposables.CompositeDisposable;
  * * Created by:
  * * Name : Anjan Debnath
  * * Date : 10/25/17
- * * Email : anjan@w3engineers.com
  * *
  * * Purpose: Abstract BaseFragment that every other fragment in this application must extend.
  * *

@@ -16,7 +16,7 @@ import retrofit2.mock.BehaviorDelegate;
  * Proprietary and confidential
  * <br>----------------------------------------------------------------------------
  * <br>Created by: Ahmed Mohmmad Ullah (Azim) on [2018-07-27 at 3:28 PM].
- * <br>Email: azim@w3engineers.com
+ * <br>Email:
  * <br>----------------------------------------------------------------------------
  * <br>Project: android-framework.
  * <br>Code Responsibility: <Purpose of code>

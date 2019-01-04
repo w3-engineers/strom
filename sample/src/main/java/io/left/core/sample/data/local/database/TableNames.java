@@ -7,7 +7,6 @@ package io.left.core.sample.data.local.database;
 * * Created by:
 * * Name : Ahmed Mohmmad Ullah (Azim)
 * * Date : 2/15/18
-* * Email : azim@w3engineers.com
 * *
 * * Purpose: Sample of ROOM model
 * *

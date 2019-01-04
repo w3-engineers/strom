@@ -8,10 +8,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.w3engineers.ext.strom.application.ui.widget.BaseRecyclerView;
+
 import java.util.ArrayList;
 import java.util.List;
-
-import com.w3engineers.ext.strom.application.ui.widget.BaseRecyclerView;
 
 /*
  * ****************************************************************************
@@ -20,7 +20,6 @@ import com.w3engineers.ext.strom.application.ui.widget.BaseRecyclerView;
  * * Created by:
  * * Name : Azizul Islam
  * * Date : 10/16/17
- * * Email : azizul@w3engineers.com
  * *
  * * Purpose: Abstract Base Adapter that every Adapter in this application must extends.
  * *

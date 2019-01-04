@@ -3,7 +3,6 @@ package com.w3engineers.ext.strom.application.ui.widget;
 /*
  *  ****************************************************************************
  *  * Created by : Md. Azizul Islam on 7/4/2018 at 11:59 AM.
- *  * Email : azizul@w3engineers.com
  *  *
  *  * Purpose: To customize android RecyclerView and provide our
  *  * default setting

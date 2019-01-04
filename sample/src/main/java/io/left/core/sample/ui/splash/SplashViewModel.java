@@ -12,7 +12,6 @@ import com.w3engineers.ext.strom.application.ui.base.BaseSplashViewModel;
  * Proprietary and confidential
  * <br>----------------------------------------------------------------------------
  * <br>Created by: Ahmed Mohmmad Ullah (Azim) on [2018-10-05 at 10:45 AM].
- * <br>Email: azim@w3engineers.com
  * <br>----------------------------------------------------------------------------
  * <br>Project: android-framework - Copy.
  * <br>Code Responsibility: <Purpose of code>

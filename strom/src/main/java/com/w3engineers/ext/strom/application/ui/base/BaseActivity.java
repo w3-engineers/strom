@@ -31,7 +31,6 @@ import io.reactivex.disposables.CompositeDisposable;
  * * Created by:
  * * Name : Anjan Debnath
  * * Date : 10/25/17
- * * Email : anjan@w3engineers.com
  * *
  * * Purpose: Abstract activity that every other Activity in this application must extends.
  * *

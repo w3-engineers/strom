@@ -12,7 +12,6 @@ import com.w3engineers.ext.strom.util.Text;
 /*
  *  ****************************************************************************
  *  * Created by : Md. Azizul Islam on 7/2/2018 at 7:00 PM.
- *  * Email : azizul@w3engineers.com
  *  *
  *  * Purpose: Dialog util class
  *  *

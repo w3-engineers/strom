@@ -22,7 +22,6 @@ import static org.junit.Assert.*;
 /*
  *  ****************************************************************************
  *  * Created by : Md. Azizul Islam on 7/11/2018 at 3:42 PM.
- *  * Email : azizul@w3engineers.com
  *  *
  *  * Purpose: To test data input activity
  *  *

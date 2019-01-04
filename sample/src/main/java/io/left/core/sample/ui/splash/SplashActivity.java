@@ -3,7 +3,6 @@ package io.left.core.sample.ui.splash;
 /*
  *  ****************************************************************************
  *  * Created by : Md. Azizul Islam on 7/5/2018 at 4:28 PM.
- *  * Email : azizul@w3engineers.com
  *  *
  *  * Purpose:
  *  *

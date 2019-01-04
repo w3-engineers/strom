@@ -11,7 +11,6 @@ import android.view.View;
  * * Created by:
  * * Name : Azizul Islam
  * * Date : 10/13/17
- * * Email : azizul@w3engineers.com
  * *
  * * Purpose: Child view holder class inherit this class
  * *

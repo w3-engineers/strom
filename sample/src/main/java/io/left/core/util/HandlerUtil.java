@@ -7,7 +7,6 @@ import android.os.Looper;
 /*
 *  ****************************************************************************
 *  * Created by : Md. Azizul Islam on 12/13/2017 at 6:37 PM.
-*  * Email : azizul@w3engineers.com
 *  * 
 *  * Last edited by : Md. Azizul Islam on 12/13/2017.
 *  * 

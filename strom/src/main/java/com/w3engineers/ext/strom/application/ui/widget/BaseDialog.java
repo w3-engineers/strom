@@ -3,7 +3,6 @@ package com.w3engineers.ext.strom.application.ui.widget;
 /*
  *  ****************************************************************************
  *  * Created by : Md. Azizul Islam on 7/9/2018 at 1:09 PM.
- *  * Email : azizul@w3engineers.com
  *  *
  *  * Purpose:
  *  *

@@ -7,7 +7,6 @@ package com.w3engineers.ext.strom.application.data.helper.local.base;
  * * Created by:
  * * Name : Ahmed Mohmmad Ullah (Azim)
  * * Date : 2/15/18
- * * Email : azim@w3engineers.com
  * *
  * * Purpose: Sample of ROOM model column names
  * *

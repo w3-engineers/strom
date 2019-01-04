@@ -3,7 +3,6 @@ package com.w3engineers.ext.strom.application.ui.widget;
 /*
  *  ****************************************************************************
  *  * Created by : Md. Azizul Islam on 7/11/2018 at 3:50 PM.
- *  * Email : azizul@w3engineers.com
  *  *
  *  * Purpose: Custom button wrapper class to make mandatory put a drawable
  *  *

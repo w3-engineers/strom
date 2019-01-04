@@ -10,7 +10,6 @@ import android.text.TextUtils;
  * Proprietary and confidential
  * <br>----------------------------------------------------------------------------
  * <br>Created by: Ahmed Mohmmad Ullah (Azim) on [2018-10-09 at 10:19 AM].
- * <br>Email: azim@w3engineers.com
  * <br>----------------------------------------------------------------------------
  * <br>Project: android-framework - Copy.
  * <br>Code Responsibility: <Purpose of code>

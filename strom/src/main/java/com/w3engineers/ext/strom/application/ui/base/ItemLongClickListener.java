@@ -8,7 +8,6 @@ import android.view.View;
 * * Created by:
 * * Name : Azizul Islam
 * * Date : 10/13/17
-* * Email : aziz@w3engineers.com
 * *
 * * Purpose: In Recycler view, to get long click events, you have to implement in this interface
 * *
