@@ -1,6 +1,7 @@
 # Strom
 [![](https://jitpack.io/v/w3-engineers/strom.svg)](https://jitpack.io/#w3-engineers/strom)
 
+A wrapper on Android native API to reduce repeated tasks.
 
 # Indexing
 
