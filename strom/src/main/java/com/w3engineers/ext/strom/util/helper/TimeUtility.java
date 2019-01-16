@@ -1,4 +1,4 @@
-package com.w3engineers.ext.strom.util;
+package com.w3engineers.ext.strom.util.helper;
 
 /**
  * ============================================================================

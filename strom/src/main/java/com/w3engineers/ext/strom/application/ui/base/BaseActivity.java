@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.databinding.ViewDataBinding;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.CallSuper;
@@ -19,9 +20,12 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+
 import com.w3engineers.ext.strom.R;
 import com.w3engineers.ext.strom.application.data.BaseResponse;
 import com.w3engineers.ext.strom.util.helper.Toaster;
+import com.w3engineers.ext.strom.util.helper.image.imgpicker.ImagePicker;
+
 import io.reactivex.disposables.CompositeDisposable;
 
 /*
@@ -348,4 +352,21 @@ public abstract class BaseActivity
      * @param <T>
      */
     protected <T extends BaseResponse> void onFailResponse(T baseResponse) {}
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        switch (requestCode) {
+            case ImagePicker.REQUEST_CODE_PICK_IMAGE:
+
+                onImage(ImagePicker.getInstance().postProcessImagePick(getApplicationContext(), requestCode, resultCode, data));
+
+                break;
+
+            default:
+                break;
+        }
+    }
+
+    protected void onImage(Uri imageUri) {}
 }

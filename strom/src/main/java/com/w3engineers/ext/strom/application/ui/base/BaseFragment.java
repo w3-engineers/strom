@@ -1,8 +1,10 @@
 package com.w3engineers.ext.strom.application.ui.base;
 
 import android.content.Context;
+import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.databinding.ViewDataBinding;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -16,7 +18,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+
 import com.w3engineers.ext.strom.R;
+import com.w3engineers.ext.strom.util.helper.image.imgpicker.ImagePicker;
+
 import io.reactivex.disposables.CompositeDisposable;
 
 /*
@@ -241,4 +246,27 @@ public abstract class BaseFragment
 
         //if (isBaseActivityInstance()) getBaseActivity().setAnimation(views);
     }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        switch (requestCode) {
+            case ImagePicker.REQUEST_CODE_PICK_IMAGE:
+
+                if(getActivity() != null) {
+                    onImage(ImagePicker.getInstance().postProcessImagePick(getActivity().getApplicationContext(), requestCode, resultCode, data));
+                }
+
+                break;
+
+            default:
+                break;
+        }
+    }
+
+    /**
+     * convenient method so that developer would override to receive image available event
+     * @param imageUri
+     */
+    protected void onImage(Uri imageUri) {}
 }

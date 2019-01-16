@@ -1,4 +1,4 @@
-package com.w3engineers.ext.strom.util;
+package com.w3engineers.ext.strom.util.helper;
 
 import android.app.ActivityManager;
 import android.content.Context;

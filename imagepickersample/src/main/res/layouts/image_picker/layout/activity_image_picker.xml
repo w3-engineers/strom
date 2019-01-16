@@ -6,7 +6,7 @@
     <data>
         <variable
             name="imageModel"
-            type="com.w3engineers.ext.strom.util.helper.imgpicker.ImagePickerDataModel"/>
+            type="com.w3engineers.ext.strom.util.helper.image.imgpicker.ImagePickerDataModel"/>
     </data>
 
     <android.support.design.widget.CoordinatorLayout

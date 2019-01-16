@@ -6,6 +6,8 @@ import android.content.pm.PackageManager;
 import android.os.Build;
 import android.support.v4.app.Fragment;
 
+import com.w3engineers.ext.strom.util.collections.CollectionUtil;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -91,6 +93,22 @@ public class PermissionUtil {
         return false;
     }
 
+    public boolean isAllowed(String... str) {
+        if (mContext == null || !CollectionUtil.hasItem(str)) return false;
+
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
+            return true;
+        }
+
+        for( String permissionFor : str) {
+            if(!isAllowed(permissionFor)) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
     public boolean isAllowed(String str) {
         if (mContext == null) return false;
 
@@ -98,10 +116,7 @@ public class PermissionUtil {
             return true;
         }
 
-        if (mContext.checkSelfPermission(str) == PackageManager.PERMISSION_GRANTED) {
-            return true;
-        }
+        return mContext.checkSelfPermission(str) == PackageManager.PERMISSION_GRANTED;
 
-        return false;
     }
 }

@@ -1,20 +1,21 @@
 package io.left.core.imagepickersample.ui.imagepicker;
 
-import android.content.Intent;
+import android.Manifest;
 import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.view.View;
 
 import com.w3engineers.ext.strom.application.ui.base.BaseActivity;
-import com.w3engineers.ext.strom.util.helper.imgpicker.ImagePicker;
-import com.w3engineers.ext.strom.util.helper.imgpicker.ImagePickerDataModel;
+import com.w3engineers.ext.strom.util.helper.PermissionUtil;
+import com.w3engineers.ext.strom.util.helper.Toaster;
+import com.w3engineers.ext.strom.util.helper.image.imgpicker.ImagePicker;
+import com.w3engineers.ext.strom.util.helper.image.imgpicker.ImagePickerDataModel;
+
 import io.left.core.imagepickersample.R;
 import io.left.core.imagepickersample.databinding.ActivityImagePickerBinding;
 
 
 public class ImagePickerActivity extends BaseActivity {
-
-    private final int REQUEST_CODE_PICK_IMAGE = 101;
 
     private ActivityImagePickerBinding binding;
 
@@ -36,21 +37,13 @@ public class ImagePickerActivity extends BaseActivity {
     }
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-
-        switch (requestCode) {
-            case REQUEST_CODE_PICK_IMAGE:
-
-                Uri uri = ImagePicker.getImageUri(getApplicationContext(), resultCode, data);
-                binding.getImageModel().setImageUri(uri);
-                break;
+    protected void onImage(Uri imageUri) {
+        super.onImage(imageUri);
+        if(imageUri != null) {
+            binding.getImageModel().setImageUri(imageUri);
+        } else {
+            Toaster.showLong("Unable to pick image");
         }
-    }
-
-    @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
     }
 
     @Override
@@ -59,11 +52,31 @@ public class ImagePickerActivity extends BaseActivity {
         if(view != null) {
             switch (view.getId()) {
                 case R.id.pick_all_images:
+                    if(PermissionUtil.on(this).request(ImagePicker.REQUEST_CODE_PICK_IMAGE, Manifest.permission.CAMERA,
+                            Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
 
-                    startActivityForResult(ImagePicker.getPickImageIntent(getApplicationContext()), REQUEST_CODE_PICK_IMAGE);
-
+                        this.startActivityForResult(ImagePicker.getInstance().getImagePickerIntent(getApplicationContext()),
+                                ImagePicker.REQUEST_CODE_PICK_IMAGE);
+                    }
                     break;
             }
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions,
+                                           @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+
+        if(requestCode == ImagePicker.REQUEST_CODE_PICK_IMAGE) {
+
+            if(PermissionUtil.on(getApplicationContext()).isAllowed(permissions)) {
+                this.startActivityForResult(ImagePicker.getInstance().getImagePickerIntent(getApplicationContext()),
+                        ImagePicker.REQUEST_CODE_PICK_IMAGE);
+            } else {
+                Toaster.showLong("Permission required");
+            }
+
         }
     }
 }

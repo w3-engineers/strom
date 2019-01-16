@@ -1,4 +1,4 @@
-package com.w3engineers.ext.strom.util.helper.imgpicker;
+package com.w3engineers.ext.strom.util.helper.image.imgpicker;
 
 import android.databinding.BaseObservable;
 import android.databinding.Bindable;
