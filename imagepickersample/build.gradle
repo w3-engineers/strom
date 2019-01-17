@@ -67,10 +67,10 @@ dependencies {
     //framework
     //Below separate inclusion make sure that we include remote gradle dependency only during remote build.
     //Otherwise we always use our local module
-    debugImplementation deps.framework
-    releaseImplementation deps.framework
+    debugImplementation deps.strom_local
+    releaseImplementation deps.strom_local
     //dependency variant
-    remoteImplementation deps.framework_remote
+    remoteImplementation deps.strom_remote
     remoteImplementation deps.leak_canary
 }
 //Configuration end
