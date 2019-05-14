@@ -31,7 +31,7 @@ import io.reactivex.Flowable;
  * ****************************************************************************
  */
 @Dao
-public abstract class UserDao implements BaseDao<UserEntity> {
+public abstract class UserDao extends BaseDao<UserEntity> {
 
 
     @Query("SELECT * FROM " + TableNames.USERS)

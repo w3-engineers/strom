@@ -4,10 +4,8 @@ import android.content.Context;
 import android.support.annotation.Keep;
 import android.support.multidex.MultiDexApplication;
 
-import com.crashlytics.android.Crashlytics;
-
 import com.w3engineers.ext.strom.util.helper.Toaster;
-import io.fabric.sdk.android.Fabric;
+
 import timber.log.Timber;
 
 
@@ -67,10 +65,6 @@ public class App extends MultiDexApplication {
 
         //init timber
         plantTimber();
-
-        //init crashlytics
-//        todo check has string or not
-        Fabric.with(this, new Crashlytics());
 
         Toaster.init(getResources().getColor(R.color.accent));
     }

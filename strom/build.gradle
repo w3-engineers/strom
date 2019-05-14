@@ -1,15 +1,8 @@
 apply plugin: 'com.android.library'
-
-def isCrashLyticsEnabled = project.hasProperty('org.w3.crashlytics') &&
-        project.getProperty('org.w3.crashlytics').toBoolean()
 def isDebugDatabaseEnabled = !project.hasProperty('org.w3.debugdb') ||//If not specified then assume true
         project.getProperty('org.w3.debugdb').toBoolean()
 def isToastyEnabled = !project.hasProperty('org.w3.toasty') ||//If not specified then assume true
         project.getProperty('org.w3.toasty').toBoolean()
-
-if(isCrashLyticsEnabled) {
-    apply plugin: 'io.fabric'
-}
 apply plugin: 'com.github.dcendents.android-maven'
 
 group = 'com.github.w3eleft'
@@ -24,6 +17,7 @@ android {
     }
     buildTypes {
         release {
+            debuggable true
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
@@ -63,12 +57,6 @@ dependencies {
 
 //Utility
 dependencies {
-
-    if(isCrashLyticsEnabled) {
-        api('com.crashlytics.sdk.android:crashlytics:2.9.3@aar') {
-            transitive = true
-        }
-    }
 
     //Timber to log
     api deps.timber

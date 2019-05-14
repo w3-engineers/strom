@@ -21,6 +21,7 @@ package com.w3engineers.ext.strom.application.data.helper.local.base;
  * <br>============================================================================
  **/
 
+import android.arch.persistence.room.Dao;
 import android.arch.persistence.room.Delete;
 import android.arch.persistence.room.Insert;
 import android.arch.persistence.room.OnConflictStrategy;
@@ -32,7 +33,8 @@ import java.util.List;
  * Any Dao which intends to have CUD(create, update, delete) operations.
  * Variable arguments and list type arguments both are supported
  */
-public interface BaseDao<T> {
+@Dao
+public abstract class BaseDao<T> {
 
     /**
      * Insert vararg objects in the database.
@@ -42,7 +44,7 @@ public interface BaseDao<T> {
      */
     @SuppressWarnings("unchecked")
     @Insert
-    long[] insert(T... rows);//varargs
+    public abstract long[] insert(T... rows);//varargs
     /**
      * Insert vararg objects in the database.
      *
@@ -50,7 +52,7 @@ public interface BaseDao<T> {
      * @return inserted rows id
      */
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    long insertOrUpdate(T row);//varargs
+    public abstract long insertOrUpdate(T row);//varargs
 
     /**
      * Insert vararg objects in the database.
@@ -59,7 +61,7 @@ public interface BaseDao<T> {
      * @return inserted rows id
      */
     @Insert
-    long[] insert(List<T> rows);
+    public abstract long[] insert(List<T> rows);
 
     /**
      * Update object from the database. The update is on primary key
@@ -69,7 +71,7 @@ public interface BaseDao<T> {
      */
     @SuppressWarnings("unchecked")
     @Update
-    int update(T... objects);
+    public abstract int update(T... objects);
 
     /**
      * Update object from the database. The update is on primary key
@@ -78,7 +80,7 @@ public interface BaseDao<T> {
      * @return affected rows count
      */
     @Update
-    int update(List<T> objects);
+    public abstract int update(List<T> objects);
 
     /**
      * Delete an object from the database based on primary key
@@ -88,7 +90,7 @@ public interface BaseDao<T> {
      */
     @SuppressWarnings("unchecked")
     @Delete
-    int delete(T... objects);
+    public abstract int delete(T... objects);
 
     /**
      * Delete an object from the database based on primary key
@@ -96,6 +98,6 @@ public interface BaseDao<T> {
      * @return affected rows count
      */
     @Delete
-    int delete(List<T> objects);
+    public abstract int delete(List<T> objects);
 
 }
