@@ -19,7 +19,7 @@ import timber.log.Timber;
  * <br>Code Responsibility: <Purpose of code>
  * <br>----------------------------------------------------------------------------
  * <br>Edited by :
- * <br>1. <First Editor> on [2018-09-17 at 4:04 PM].
+ * <br>1. <First Editor> Md. Moniruzzaman on [2019-12-12 at 3:15 PM].
  * <br>2. <Second Editor>
  * <br>----------------------------------------------------------------------------
  * <br>Reviewed by :
@@ -37,8 +37,8 @@ public class SharedPref {
 
     private SharedPreferences preferences;
     private SharedPref(Context context) {
-        preferences = PreferenceManager.getDefaultSharedPreferences(context);
-
+        String PACKAGE_NAME = context.getApplicationContext().getPackageName();
+        preferences = context.getSharedPreferences(PACKAGE_NAME, Context.MODE_PRIVATE | Context.MODE_MULTI_PROCESS);
     }
 
     public static synchronized SharedPref getSharedPref(@NonNull Context context) {
